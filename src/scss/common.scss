@@ -1,0 +1,53 @@
+// Заголовки, общие БЭМ блоки и прочее
+
+// Accessibility for screen reader
+
+// .visually-hidden {
+// 	position: absolute;
+// 	width: 1px;
+// 	height: 1px;
+// 	margin: -1px;
+// 	padding: 0;
+// 	overflow: hidden;
+// 	border: 0;
+// 	clip: rect(0 0 0 0);
+// }
+// <label for="email" class="visually-hidden">Email:</label>
+// <input id="email" type="text" class="form__input" placeholder="Email address">
+.title-left {
+	position: relative;
+	display: inline-block;
+	margin-bottom: 8px;
+	font-weight: 400;
+	font-size: 22px;
+	line-height: 32px;
+	letter-spacing: 7.33333px;
+	text-transform: uppercase;
+	opacity: 0.5;
+	padding-left: 104px;
+	&::before {
+		content: '';
+		position: absolute;
+		height: 1px;
+		width: 80px;
+		background-color: $color-white;
+		opacity: .5;
+		top: 50%;
+		left: 0px;
+		transform: translateY(-50%);
+	}
+}
+
+.text {
+	font-weight: 300;
+	font-size: 12px;
+	line-height: 14px;
+	letter-spacing: 1.05px;
+}
+
+.text2 {
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 19px;
+	letter-spacing: 1.4px;
+}

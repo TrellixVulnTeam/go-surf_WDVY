@@ -1,0 +1,138 @@
+// Библиотеки
+@use 'sass:math';
+
+// Подключаемые шрифты
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;800&display=swap');
+// @import "fonts/fonts";
+// Шрифт по умолчанию
+$fontfamily: 'Fira Sans', sans-serif;
+
+// Переменные
+$containerWidth: 1100;
+$containerPadding: 40;
+$containerSidePadding: math.div($containerPadding, 2);
+$breakpoint1400: 1339.98 + px;
+$breakpoint1200: 1199.98 + px;
+$breakpoint992: 991.98 + px;
+$breakpoint768: 767.98 + px;
+$breakpoint576: 575.98 + px;
+$breakpoint480: 479.98 + px;
+
+// Цвета
+$color-white: #FFFFFF;
+
+// Обнуление, общие параметры
+@import 'base/null';
+@import 'base/mixins';
+@import 'libs/libs';
+// @import 'base/functions';
+
+// Оболочка
+body {
+	color: $color-white;
+	a {
+		color: $color-white;
+	}
+	&.lock {
+		overflow: hidden;
+	}
+}
+
+.wrapper {
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+// Основная сетка
+.container {
+	max-width: ($containerWidth + $containerPadding) + px;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 $containerSidePadding + px;
+
+	@media (max-width: $breakpoint1400) {
+		max-width: 1100px;
+	}
+
+	@media (max-width: $breakpoint992) {
+		max-width: 970px;
+	}
+
+	@media (max-width: $breakpoint768) {
+		max-width: 750px;
+	}
+
+	@media (max-width: $breakpoint480) {
+		max-width: none;
+	}
+
+}
+
+.vertical-indent {
+	&--xs {
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
+	&--s {
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
+	&--m {
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
+	&--l {
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
+	&--xl {
+		padding-top: 0px;
+		padding-bottom: 0px;
+
+	}
+	@media (max-width: $breakpoint1200) {
+	}
+	@media (max-width: $breakpoint992) {
+	}
+	@media (max-width: $breakpoint768) {
+	}
+}
+
+// классы для вставки 
+// .vertical-indent .vertical-indent--xs
+// .vertical-indent .vertical-indent--s
+// .vertical-indent .vertical-indent--m
+// .vertical-indent .vertical-indent--l
+// .vertical-indent .vertical-indent--xl
+
+// Подключение файлов/стилей/страниц и элементов
+
+@import "base/ui";
+@import "common";
+@import "header";
+@import "home";
+@import "footer";
+@import "base/swiper";
+
+// Основные элементы
+// Пример: 
+
+// <-- HTML -->
+// <main class="page page__home">
+// 	<section class="page__main-block"></section>
+// </main>
+// <-- / HTML -->
+
+// <-- CSS -->
+// .page {
+
+// 	&__home {
+// 	}
+
+// 	&__main-block {
+// 	}
+// }
+// <-- / CSS -->
