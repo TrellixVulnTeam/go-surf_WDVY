@@ -1,5 +1,8 @@
 .header {
 	position: relative;
+	width: 100%;
+	height: 100vh;
+	
 	&__content {
 	}
 	&__bg-logo {
@@ -92,6 +95,10 @@
 	}
 }
 
+.swiper {
+	width: 100%;
+}
+
 .main-screen-slider {
 	position: relative;
 	&__wrapper {
@@ -111,18 +118,36 @@
 
 	&__btns-nav {
 		display: flex;
-		background-color: red;
-		gap: 20px;
+		position: absolute;
+		justify-content: space-between;
+		width: 69px;
+		height: 21px;
 		font-size: 0;
+		right: 80px;
+		top: 40px;
+		z-index: 10;
+		.swiper-button-next, .swiper-button-prev {
+			position: static;
+			margin-top: 0;
+		}
+		.swiper-button-next:after, .swiper-button-prev:after {
+			display: none;
+		}
 	}
 	&__button-prev {
+		cursor: pointer;
 	}
-	&__button-next {}
+
+	&__button-next {
+		cursor: pointer;
+	}
 
 	&__content {
-		position: relative;
+		position: absolute;
 		text-align: right;
 		z-index: 10;
+		bottom: 115px;
+		right: 80px;
 	}
 
 	&__title {
@@ -147,7 +172,9 @@
 		text-transform: uppercase;
 		margin-bottom: 30px;
 	}
+
 	&__pagination {
+		margin-bottom: 41px;
 	}
 }
 
@@ -160,16 +187,29 @@
 	gap: 40px;
 	max-width: 920px;
 	width: 100%;
-	&__item {
-		max-width: 200px;
-		width: 100%;
-	}
 	.swiper-pagination-bullet-active {
+		background-color: transparent;
 		.pagination-item__line {
 			background-color: #4AF6CD;
 		}
 	}
+	
+	.swiper-pagination-bullet {
+		max-width: 200px;
+		width: 100%;
+		border-radius: 0;
+		display: block;
+		opacity: 1;
+		margin: 0;
+	}
+	.swiper-horizontal {
+		bottom: 0;
+		right: 0;
+		margin: 0;
+	}
 }
+
+
 .pagination-item {
 	position: relative;
 	&__line {

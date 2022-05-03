@@ -8,7 +8,7 @@
 $fontfamily: 'Fira Sans', sans-serif;
 
 // Переменные
-$containerWidth: 1100;
+$containerWidth: 1174;
 $containerPadding: 40;
 $containerSidePadding: math.div($containerPadding, 2);
 $breakpoint1400: 1339.98 + px;
@@ -69,6 +69,9 @@ body {
 		max-width: none;
 	}
 
+	&--right {
+		padding-right: 80px;
+	}
 }
 
 .vertical-indent {
@@ -115,7 +118,6 @@ body {
 @import "header";
 @import "home";
 @import "footer";
-@import "base/swiper";
 
 // Основные элементы
 // Пример: 
