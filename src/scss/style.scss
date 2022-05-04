@@ -25,10 +25,12 @@ $color-white: #FFFFFF;
 @import 'base/null';
 @import 'base/mixins';
 @import 'libs/libs';
+
 // @import 'base/functions';
 
 // Оболочка
 body {
+	background-color: red;
 	color: $color-white;
 	a {
 		color: $color-white;
@@ -70,7 +72,7 @@ body {
 	}
 
 	&--right {
-		padding-right: 80px;
+		margin-right: 80px;
 	}
 }
 
@@ -114,6 +116,7 @@ body {
 // Подключение файлов/стилей/страниц и элементов
 
 @import "base/ui";
+@import "base/animations";
 @import "common";
 @import "header";
 @import "home";
