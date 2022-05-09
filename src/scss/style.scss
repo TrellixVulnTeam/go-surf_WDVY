@@ -8,7 +8,7 @@
 $fontfamily: 'Fira Sans', sans-serif;
 
 // Переменные
-$containerWidth: 1174;
+$containerWidth: 1294;
 $containerPadding: 40;
 $containerSidePadding: math.div($containerPadding, 2);
 $breakpoint1400: 1339.98 + px;
@@ -30,7 +30,9 @@ $color-white: #FFFFFF;
 
 // Оболочка
 body {
-	background-color: red;
+	min-width: 100vw;
+	min-height: 100vh;
+	background-color: #171919;
 	color: $color-white;
 	a {
 		color: $color-white;
@@ -86,8 +88,8 @@ body {
 		padding-bottom: 0px;
 	}
 	&--m {
-		padding-top: 0px;
-		padding-bottom: 0px;
+		padding-top: 60px;
+		padding-bottom: 60px;
 	}
 	&--l {
 		padding-top: 0px;
@@ -107,11 +109,11 @@ body {
 }
 
 // классы для вставки 
-// .vertical-indent .vertical-indent--xs
-// .vertical-indent .vertical-indent--s
-// .vertical-indent .vertical-indent--m
-// .vertical-indent .vertical-indent--l
-// .vertical-indent .vertical-indent--xl
+// vertical-indent .vertical-indent--xs
+// vertical-indent .vertical-indent--s
+// vertical-indent .vertical-indent--m
+// vertical-indent .vertical-indent--l
+// vertical-indent .vertical-indent--xl
 
 // Подключение файлов/стилей/страниц и элементов
 

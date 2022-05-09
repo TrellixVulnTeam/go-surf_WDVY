@@ -19,3 +19,10 @@ let swiper = new Swiper(".main-screen-slider", {
 		}
 	},
 });
+
+let swiper2 = new Swiper(".surf-swiper", {
+	loop: true,
+	slidesPerView: 'auto',
+	initialSlide: 1,
+	speed: 800,
+});
