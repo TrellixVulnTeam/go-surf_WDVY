@@ -32,6 +32,7 @@
 	&__swiper {
 		display: flex;
 	}
+
 }
 
 
@@ -40,6 +41,15 @@
 	max-width: 1440px;
 	overflow: hidden;
 	width: 100%;
+	&__position-btns-nav {
+		display: flex;
+		justify-content: flex-end;
+		margin-bottom: 33px;
+	}
+	&__btns-nav {
+		opacity: 0.25;
+	}
+
 	&__wrapper {
 		margin: 0 calc(-25% - 40px) 0 auto;
 	}
@@ -62,8 +72,8 @@
 	}
 	.swiper-slide-active {
 		.swiper-card__bg {
-			opacity: 0;
-			visibility: hidden;
+			box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+			opacity: 0.3;
 		}
 		.btn {
 			display: flex;
@@ -81,7 +91,6 @@
 		height: 750px;
 		background: rgba(#000000, 0.85);
 		opacity: 1;
-		visibility: visible;
 	}
 
 	&__background {

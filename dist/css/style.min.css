@@ -156,10 +156,28 @@ body.lock {
   display: none;
 }
 
-.line-animation {
+.line-animation1 {
+  stroke-dasharray: 445;
+  stroke-dashoffset: 445;
+  animation: animdash 6s infinite 1s;
+}
+
+.line-animation2 {
+  stroke-dasharray: 370;
+  stroke-dashoffset: 370;
+  animation: animdash 6s infinite 1s;
+}
+
+.line-animation3 {
   stroke-dasharray: 600;
   stroke-dashoffset: 600;
-  animation: animdash 5s infinite 6s;
+  animation: animdash 6s infinite 1s;
+}
+
+.line-animation4 {
+  stroke-dasharray: 410;
+  stroke-dashoffset: 410;
+  animation: animdash 6s infinite 1s;
 }
 
 @keyframes animdash {
@@ -297,6 +315,28 @@ body.lock {
   left: -50px;
 }
 
+.btns-nav {
+  display: flex;
+  justify-content: space-between;
+  width: 69px;
+  height: 21px;
+  font-size: 0;
+}
+.btns-nav .swiper-button-next, .btns-nav .swiper-button-prev {
+  position: static;
+  margin-top: 0;
+  height: 100%;
+}
+.btns-nav .swiper-button-next:after, .btns-nav .swiper-button-prev:after {
+  display: none;
+}
+.btns-nav__button-prev {
+  cursor: pointer;
+}
+.btns-nav__button-next {
+  cursor: pointer;
+}
+
 .header {
   width: 100vw;
   height: 100vh;
@@ -387,28 +427,9 @@ body.lock {
   left: 0;
 }
 .main-screen-slider__btns-nav {
-  display: flex;
   position: absolute;
-  justify-content: space-between;
-  width: 69px;
-  height: 21px;
-  font-size: 0;
   right: 80px;
   top: 40px;
-}
-.main-screen-slider__btns-nav .swiper-button-next, .main-screen-slider__btns-nav .swiper-button-prev {
-  position: static;
-  margin-top: 0;
-  height: 100%;
-}
-.main-screen-slider__btns-nav .swiper-button-next:after, .main-screen-slider__btns-nav .swiper-button-prev:after {
-  display: none;
-}
-.main-screen-slider__button-prev {
-  cursor: pointer;
-}
-.main-screen-slider__button-next {
-  cursor: pointer;
 }
 .main-screen-slider__content {
   position: absolute;
@@ -514,6 +535,14 @@ body.lock {
   overflow: hidden;
   width: 100%;
 }
+.surf-swiper__position-btns-nav {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 33px;
+}
+.surf-swiper__btns-nav {
+  opacity: 0.25;
+}
 .surf-swiper__wrapper {
   margin: 0 calc(-25% - 40px) 0 auto;
 }
@@ -533,8 +562,8 @@ body.lock {
   width: calc(25% + 40px);
 }
 .surf-swiper .swiper-slide-active .swiper-card__bg {
-  opacity: 0;
-  visibility: hidden;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  opacity: 0.3;
 }
 .surf-swiper .swiper-slide-active .btn {
   display: flex;
@@ -551,7 +580,6 @@ body.lock {
   height: 750px;
   background: rgba(0, 0, 0, 0.85);
   opacity: 1;
-  visibility: visible;
 }
 .swiper-card__background {
   position: relative;

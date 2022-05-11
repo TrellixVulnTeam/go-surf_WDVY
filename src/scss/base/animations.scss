@@ -1,7 +1,14 @@
-.line-animation {
-	stroke-dasharray: 600;
-	stroke-dashoffset: 600;
-	animation: animdash 5s infinite 6s;
+.line-animation1 {
+	@include animdash(445, 445, 6s, 1s);
+}
+.line-animation2 {
+	@include animdash(370, 370, 6s, 1s);
+}
+.line-animation3 {
+	@include animdash(600, 600, 6s, 1s);
+}
+.line-animation4 {
+	@include animdash(410, 410, 6s, 1s);
 }
 
 @keyframes animdash {

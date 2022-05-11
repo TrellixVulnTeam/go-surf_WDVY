@@ -137,29 +137,14 @@
 	}
 
 	&__btns-nav {
-		display: flex;
 		position: absolute;
-		justify-content: space-between;
-		width: 69px;
-		height: 21px;
-		font-size: 0;
 		right: 80px;
 		top: 40px;
-		.swiper-button-next, .swiper-button-prev {
-			position: static;
-			margin-top: 0;
-			height: 100%;
-		}
-		.swiper-button-next:after, .swiper-button-prev:after {
-			display: none;
-		}
 	}
 	&__button-prev {
-		cursor: pointer;
 	}
 
 	&__button-next {
-		cursor: pointer;
 	}
 
 	&__content {

@@ -14,3 +14,9 @@
 	-ms-transition: all $time ease $delay;
 	-o-transition: all $time ease $delay;
 }
+
+@mixin animdash($array, $offset, $duration, $delay) {
+	stroke-dasharray: $array;
+	stroke-dashoffset: $offset;
+	animation: animdash $duration infinite $delay;
+}
