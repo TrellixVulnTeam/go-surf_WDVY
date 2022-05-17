@@ -1,14 +1,17 @@
+.line-animation0 {
+	@include animdash(445, 445, 6s, 5s);
+}
 .line-animation1 {
 	@include animdash(445, 445, 6s, 1s);
 }
 .line-animation2 {
-	@include animdash(370, 370, 6s, 1s);
+	@include animdash(400, 400, 6s, 1s);
 }
 .line-animation3 {
-	@include animdash(600, 600, 6s, 1s);
+	@include animdash(557, 557, 6s, 1s);
 }
 .line-animation4 {
-	@include animdash(410, 410, 6s, 1s);
+	@include animdash(407, 407, 6s, 1s);
 }
 
 @keyframes animdash {

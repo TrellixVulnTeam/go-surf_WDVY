@@ -156,6 +156,12 @@ body.lock {
   display: none;
 }
 
+.line-animation0 {
+  stroke-dasharray: 445;
+  stroke-dashoffset: 445;
+  animation: animdash 6s infinite 5s;
+}
+
 .line-animation1 {
   stroke-dasharray: 445;
   stroke-dashoffset: 445;
@@ -163,20 +169,20 @@ body.lock {
 }
 
 .line-animation2 {
-  stroke-dasharray: 370;
-  stroke-dashoffset: 370;
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
   animation: animdash 6s infinite 1s;
 }
 
 .line-animation3 {
-  stroke-dasharray: 600;
-  stroke-dashoffset: 600;
+  stroke-dasharray: 557;
+  stroke-dashoffset: 557;
   animation: animdash 6s infinite 1s;
 }
 
 .line-animation4 {
-  stroke-dasharray: 410;
-  stroke-dashoffset: 410;
+  stroke-dasharray: 407;
+  stroke-dashoffset: 407;
   animation: animdash 6s infinite 1s;
 }
 
@@ -337,6 +343,10 @@ body.lock {
   cursor: pointer;
 }
 
+.display-none {
+  display: none;
+}
+
 .header {
   width: 100vw;
   height: 100vh;
@@ -346,12 +356,6 @@ body.lock {
   z-index: 5;
   bottom: 40px;
   left: 210px;
-}
-.header__map {
-  position: absolute;
-  z-index: 5;
-  top: 0;
-  right: 0;
 }
 .header__bg-logo {
   position: absolute;
@@ -415,6 +419,12 @@ body.lock {
 .main-screen-slider {
   width: 100%;
   height: 100%;
+}
+.main-screen-slider__map {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  right: 0;
 }
 .main-screen-slider__bg {
   height: 100vh;
