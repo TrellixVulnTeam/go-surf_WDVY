@@ -24,6 +24,12 @@ const mapBigDots = [`<path class="map-big-dot" fill-rule="evenodd" clip-rule="ev
 `<path class="map-big-dot" fill-rule="evenodd" clip-rule="evenodd" d="M729.5 91C733.09 91 736 88.0899 736 84.5C736 80.9101 733.09 78 729.5 78C725.91 78 723 80.9101 723 84.5C723 88.0899 725.91 91 729.5 91Z" fill="#4AF6CD"/>`
 ]
 
+function deleteMapHtml(map, index) {
+	map[index].firstChild.nextSibling.querySelector('.map-line').remove();
+	map[index].firstChild.nextSibling.querySelector('.map-big-dot').remove();
+	map[index].firstChild.nextSibling.querySelector('.map-beach-name').remove();
+}
+
 let swiper = new Swiper(".main-screen-slider", {
 	effect: "fade",
 	speed: 800,
@@ -49,14 +55,15 @@ let swiper = new Swiper(".main-screen-slider", {
 			const currentDot = map[1].firstChild.nextSibling.querySelectorAll('.map-current-dot');
 			const currLocation = document.querySelectorAll('.current-location');
 
+			smallDot.forEach((item, index) => {
+				if (index > 0) {
+					item.classList.add(`animate__animated`, `animate__fadeIn`, `animate__delay-${3 - index}s`);
+				}
+			})
 			smallDot[0].classList.add(`animate__animated`, `animate__fadeIn`, `animate__delay-4s`);
-			smallDot[1].classList.add(`animate__animated`, `animate__fadeIn`, `animate__delay-2s`);
-			smallDot[2].classList.add(`animate__animated`, `animate__fadeIn`, `animate__delay-1s`);
-			smallDot[3].classList.add(`animate__animated`, `animate__fadeIn`, `animate__delay-0s`);
 			currentDot[0].classList.add(`animate__animated`, `animate__fadeIn`, `animate__delay-4s`);
 			currLocation[1].classList.add(`animate__animated`, `animate__fadeIn`, `animate__delay-4s`);
 			
-
 			map[1].firstChild.nextSibling.insertAdjacentHTML('afterbegin', [mapLines[0], mapBigDots[0], mapNames[0]].join(' '));
 
 			const bigDot = document.querySelector('.map-big-dot');
@@ -68,9 +75,8 @@ let swiper = new Swiper(".main-screen-slider", {
 			bigDot.classList.add(`animate__animated`, `animate__fadeIn`, `animate__delay-3s`);
 		},
 		slideNextTransitionEnd: function (swiper) {
-			console.log('active:', swiper.realIndex, 'prev:', prevIndex)
+			const map = document.querySelectorAll('.main-screen-slider__map');
 			if (swiper.realIndex > prevIndex) {
-				const map = document.querySelectorAll('.main-screen-slider__map');
 				map[swiper.realIndex + 1].firstChild.nextSibling.insertAdjacentHTML('afterbegin', [mapLines[swiper.realIndex], mapBigDots[swiper.realIndex], mapNames[swiper.realIndex]].join(' '));
 
 				const bigDot = map[swiper.realIndex + 1].firstChild.nextSibling.querySelector('.map-big-dot');
@@ -80,21 +86,13 @@ let swiper = new Swiper(".main-screen-slider", {
 				line.classList.add(`line-animation${swiper.realIndex + 1}`);
 				beachName.classList.add(`animate__animated`, `animate__fadeIn`, `animate__delay-0s`);
 				bigDot.classList.add(`animate__animated`, `animate__fadeIn`, `animate__delay-0s`);
-				console.log(map);
 				if (map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-line')) {
-					console.log('next slide 1');
-					map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-line').remove();
-					map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-big-dot').remove();
-					map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-beach-name').remove();
+					deleteMapHtml(map, prevIndex + 1);
 				} else {
-					console.log('next slide 2');
-					map[map.length - 1].firstChild.nextSibling.querySelector('.map-line').remove();
-					map[map.length - 1].firstChild.nextSibling.querySelector('.map-big-dot').remove();
-					map[map.length - 1].firstChild.nextSibling.querySelector('.map-beach-name').remove();
+					deleteMapHtml(map, map.length - 1);
 				}
 
 			} else if (swiper.realIndex === 0 && prevIndex + 1 === slides.length) {
-				const map = document.querySelectorAll('.main-screen-slider__map');
 				map[map.length - 1].firstChild.nextSibling.insertAdjacentHTML('afterbegin', [mapLines[swiper.realIndex], mapBigDots[swiper.realIndex], mapNames[swiper.realIndex]].join(' '));
 
 				const bigDot = map[map.length - 1].firstChild.nextSibling.querySelector('.map-big-dot');
@@ -104,25 +102,17 @@ let swiper = new Swiper(".main-screen-slider", {
 				line.classList.add(`line-animation1`);
 				beachName.classList.add(`animate__animated`, `animate__fadeIn`, `animate__delay-0s`);
 				bigDot.classList.add(`animate__animated`, `animate__fadeIn`, `animate__delay-0s`);
-				console.log(map);
 				if (map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-line')) {
-					console.log('next slide loop 1');
-					map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-line').remove();
-					map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-big-dot').remove();
-					map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-beach-name').remove();
+					deleteMapHtml(map, prevIndex + 1);
 				} else {
-					console.log('next slide loop 1');
-					map[0].firstChild.nextSibling.querySelector('.map-line').remove();
-					map[0].firstChild.nextSibling.querySelector('.map-big-dot').remove();
-					map[0].firstChild.nextSibling.querySelector('.map-beach-name').remove();
+					deleteMapHtml(map, 0);
 				}
 			}
 			prevIndex = swiper.realIndex;
 		},
 		slidePrevTransitionEnd: function (swiper) {
-			console.log('active:', swiper.realIndex, 'prev:', prevIndex)
+			const map = document.querySelectorAll('.main-screen-slider__map');
 			if (swiper.realIndex < prevIndex) {
-				const map = document.querySelectorAll('.main-screen-slider__map');
 				map[swiper.realIndex + 1].firstChild.nextSibling.insertAdjacentHTML('afterbegin', [mapLines[swiper.realIndex], mapBigDots[swiper.realIndex], mapNames[swiper.realIndex]].join(' '));
 
 				const bigDot = map[swiper.realIndex + 1].firstChild.nextSibling.querySelector('.map-big-dot');
@@ -132,48 +122,38 @@ let swiper = new Swiper(".main-screen-slider", {
 				line.classList.add(`line-animation${swiper.realIndex + 1}`);
 				beachName.classList.add(`animate__animated`, `animate__fadeIn`, `animate__delay-0s`);
 				bigDot.classList.add(`animate__animated`, `animate__fadeIn`, `animate__delay-0s`);
-				console.log(map);
 				if (map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-line')) {
-					console.log('prev 1');
-					map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-line').remove();
-					map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-big-dot').remove();
-					map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-beach-name').remove();
+					deleteMapHtml(map, prevIndex + 1);
 				} else {
-					console.log('prev 2');
-					map[0].firstChild.nextSibling.querySelector('.map-line').remove();
-					map[0].firstChild.nextSibling.querySelector('.map-big-dot').remove();
-					map[0].firstChild.nextSibling.querySelector('.map-beach-name').remove();
+					deleteMapHtml(map, 0);
 				}
 
 			} else if (swiper.realIndex + 1 === slides.length && prevIndex === 0) {
-				const map = document.querySelectorAll('.main-screen-slider__map');
 				map[0].firstChild.nextSibling.insertAdjacentHTML('afterbegin', [mapLines[swiper.realIndex], mapBigDots[swiper.realIndex], mapNames[swiper.realIndex]].join(' '));
 
 				const bigDot = map[0].firstChild.nextSibling.querySelector('.map-big-dot');
 				const line = map[0].firstChild.nextSibling.querySelector('.map-line');
 				const beachName = map[0].firstChild.nextSibling.querySelector('.map-beach-name');
 	
-				line.classList.add(`line-animation4`);
+				line.classList.add(`line-animation${map.length - 2}`);
 				beachName.classList.add(`animate__animated`, `animate__fadeIn`, `animate__delay-0s`);
 				bigDot.classList.add(`animate__animated`, `animate__fadeIn`, `animate__delay-0s`);
-				console.log(map);
 				if (map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-line')) {
-					console.log('prev loop 1');
-					map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-line').remove();
-					map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-big-dot').remove();
-					map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-beach-name').remove();
+					deleteMapHtml(map, prevIndex + 1);
 				} else {
-					console.log('prev loop 1');
-					map[map.length - 1].firstChild.nextSibling.querySelector('.map-line').remove();
-					map[map.length - 1].firstChild.nextSibling.querySelector('.map-big-dot').remove();
-					map[map.length - 1].firstChild.nextSibling.querySelector('.map-beach-name').remove();
+					deleteMapHtml(map, map.length - 1);
 				}
 			}
 			prevIndex = swiper.realIndex;
-			
 		}
-		
-	},
+	}
+});
+
+let swiper3 = new Swiper(".surf-dots-swiper", {
+	loop: true,
+	slidesPerView: 8,
+	freeMode: true,
+	watchSlidesProgress: true,
 });
 
 let swiper2 = new Swiper(".surf-swiper", {
@@ -185,4 +165,8 @@ let swiper2 = new Swiper(".surf-swiper", {
 		nextEl: ".surf-swiper__button-next",
 		prevEl: ".surf-swiper__button-prev",
 	},
+	thumbs: {
+		swiper: swiper3,
+	  }
 });
+

@@ -31,3 +31,11 @@ export function toggleClassActive() {
 		})
 	}
 }
+
+export function setTime() {
+	const today = new Date();
+	const monthYear = document.querySelector('.time__month-year');
+	const day = document.querySelector('.time__day');
+	monthYear.innerHTML = `${today.getMonth() + 1} | ${today.getFullYear()}`
+	day.innerHTML = `${today.getDate()}`
+}

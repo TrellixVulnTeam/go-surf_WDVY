@@ -35,7 +35,82 @@
 
 }
 
+.surf-map {	
+	position: relative;
+	margin: 0 auto;
+	&__background {
+		img {
+			max-width: 1200px;
+			max-height: 635px;
+			width: 100%;
+			height: auto;
+		}
+	}
+	&__location-marker {
+		position: absolute;
+		top: 265px;
+		left: 165px;
+	}
+	&__dots {
+		display: flex;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
 
+	&__dot-block {
+	}
+}
+
+.dot-block {
+
+	&__circle {
+		width: 24px;
+		height: 24px;
+		background: #4AF6CD;
+		box-shadow: 0px 0px 35px rgba(74, 246, 205, 0.837777);
+		border-radius: 100%;
+	}
+
+	&__content {
+	}
+}
+
+.surf-weather-block {
+	display: none;
+	&__header {
+	}
+
+	&__left {
+	}
+
+	&__title {
+	}
+
+	&__line {
+	}
+
+	&__country {
+	}
+
+	&__right {
+	}
+
+	&__footer {
+	}
+
+	&__footer-block {
+	}
+
+	&__footer-img {
+	}
+
+	&__footer-title {
+	}
+
+	&__footer-subtitle {
+	}
+}
 
 .surf-swiper {
 	max-width: 1440px;
