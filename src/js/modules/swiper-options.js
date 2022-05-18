@@ -15,19 +15,14 @@ const mapNames = [`<path class="map-beach-name" d="M214.797 227H212.765L208.285 
 const mapSmallDots = [`<path class="map-small-dot" fill-rule="evenodd" clip-rule="evenodd" d="M365 228C366.657 228 368 226.657 368 225C368 223.343 366.657 222 365 222C363.343 222 362 223.343 362 225C362 226.657 363.343 228 365 228Z" fill="#4AF6CD"/>`,
 `<path class="map-small-dot" fill-rule="evenodd" clip-rule="evenodd" d="M661 363C662.657 363 664 361.657 664 360C664 358.343 662.657 357 661 357C659.343 357 658 358.343 658 360C658 361.657 659.343 363 661 363Z" fill="#4AF6CD"/>`,
 `<path class="map-small-dot" fill-rule="evenodd" clip-rule="evenodd" d="M575 322C576.657 322 578 320.657 578 319C578 317.343 576.657 316 575 316C573.343 316 572 317.343 572 319C572 320.657 573.343 322 575 322Z" fill="#4AF6CD"/>`,
-`<path class="map-small-dot" fill-rule="evenodd" clip-rule="evenodd" d="M725 471C726.657 471 728 469.657 728 468C728 466.343 726.657 465 725 465C723.343 465 722 466.343 722 468C722 469.657 723.343 471 725 471Z" fill="#4AF6CD"/>`,
+`<path class="map-small-dot" fill-rule="evenodd" clip-rule="evenodd" d="M725 471C726.657 471 728 469.657 728 468C728 466.343 726.657 465 725 465C723.343 465 722 466.343 722 468C722 469.657 723.343 471 725 471Z" fill="#4AF6CD"/>`
 ]
 const mapBigDots = [`<path class="map-big-dot" fill-rule="evenodd" clip-rule="evenodd" d="M364.5 231C368.09 231 371 228.09 371 224.5C371 220.91 368.09 218 364.5 218C360.91 218 358 220.91 358 224.5C358 228.09 360.91 231 364.5 231Z" fill="#4AF6CD"/>`,
 `<path class="map-big-dot" fill-rule="evenodd" clip-rule="evenodd" d="M660.5 367C664.09 367 667 364.09 667 360.5C667 356.91 664.09 354 660.5 354C656.91 354 654 356.91 654 360.5C654 364.09 656.91 367 660.5 367Z" fill="#4AF6CD"/>`,
 `<path class="map-big-dot" fill-rule="evenodd" clip-rule="evenodd" d="M573.5 326C577.09 326 580 323.09 580 319.5C580 315.91 577.09 313 573.5 313C569.91 313 567 315.91 567 319.5C567 323.09 569.91 326 573.5 326Z" fill="#4AF6CD"/>`,
 `<path class="map-big-dot" fill-rule="evenodd" clip-rule="evenodd" d="M724.5 474C728.09 474 731 471.09 731 467.5C731 463.91 728.09 461 724.5 461C720.91 461 718 463.91 718 467.5C718 471.09 720.91 474 724.5 474Z" fill="#4AF6CD"/>`,
-`<path class="map-big-dot" fill-rule="evenodd" clip-rule="evenodd" d="M729.5 91C733.09 91 736 88.0899 736 84.5C736 80.9101 733.09 78 729.5 78C725.91 78 723 80.9101 723 84.5C723 88.0899 725.91 91 729.5 91Z" fill="#4AF6CD"/>`,
+`<path class="map-big-dot" fill-rule="evenodd" clip-rule="evenodd" d="M729.5 91C733.09 91 736 88.0899 736 84.5C736 80.9101 733.09 78 729.5 78C725.91 78 723 80.9101 723 84.5C723 88.0899 725.91 91 729.5 91Z" fill="#4AF6CD"/>`
 ]
-const map = document.querySelectorAll('.main-screen-slider__map');
-const beachName = document.querySelectorAll('.map-beach-name');
-const smallDot = document.querySelectorAll('.map-small-dot');
-const bigDot = document.querySelectorAll('.map-big-dot');
-
 
 let swiper = new Swiper(".main-screen-slider", {
 	effect: "fade",
@@ -61,9 +56,8 @@ let swiper = new Swiper(".main-screen-slider", {
 			currentDot[0].classList.add(`animate__animated`, `animate__fadeIn`, `animate__delay-4s`);
 			currLocation[1].classList.add(`animate__animated`, `animate__fadeIn`, `animate__delay-4s`);
 			
-			map[1].firstChild.nextSibling.insertAdjacentHTML('afterbegin', mapLines[0]);
-			map[1].firstChild.nextSibling.insertAdjacentHTML('afterbegin', mapBigDots[0]);
-			map[1].firstChild.nextSibling.insertAdjacentHTML('afterbegin', mapNames[0]);
+
+			map[1].firstChild.nextSibling.insertAdjacentHTML('afterbegin', [mapLines[0], mapBigDots[0], mapNames[0]].join(' '));
 
 			const bigDot = document.querySelector('.map-big-dot');
 			const line = document.querySelector('.map-line');
@@ -74,11 +68,10 @@ let swiper = new Swiper(".main-screen-slider", {
 			bigDot.classList.add(`animate__animated`, `animate__fadeIn`, `animate__delay-3s`);
 		},
 		slideNextTransitionEnd: function (swiper) {
+			console.log('active:', swiper.realIndex, 'prev:', prevIndex)
 			if (swiper.realIndex > prevIndex) {
 				const map = document.querySelectorAll('.main-screen-slider__map');
-				map[swiper.realIndex + 1].firstChild.nextSibling.insertAdjacentHTML('afterbegin', mapLines[swiper.realIndex]);
-				map[swiper.realIndex + 1].firstChild.nextSibling.insertAdjacentHTML('afterbegin', mapBigDots[swiper.realIndex]);
-				map[swiper.realIndex + 1].firstChild.nextSibling.insertAdjacentHTML('afterbegin', mapNames[swiper.realIndex]);
+				map[swiper.realIndex + 1].firstChild.nextSibling.insertAdjacentHTML('afterbegin', [mapLines[swiper.realIndex], mapBigDots[swiper.realIndex], mapNames[swiper.realIndex]].join(' '));
 
 				const bigDot = map[swiper.realIndex + 1].firstChild.nextSibling.querySelector('.map-big-dot');
 				const line = map[swiper.realIndex + 1].firstChild.nextSibling.querySelector('.map-line');
@@ -87,42 +80,50 @@ let swiper = new Swiper(".main-screen-slider", {
 				line.classList.add(`line-animation${swiper.realIndex + 1}`);
 				beachName.classList.add(`animate__animated`, `animate__fadeIn`, `animate__delay-0s`);
 				bigDot.classList.add(`animate__animated`, `animate__fadeIn`, `animate__delay-0s`);
-				if (map[5].firstChild.nextSibling.querySelector('.map-line')) {
-					map[5].firstChild.nextSibling.querySelector('.map-line').remove();
-					map[5].firstChild.nextSibling.querySelector('.map-big-dot').remove();
-					map[5].firstChild.nextSibling.querySelector('.map-beach-name').remove();
-				} else {
+				console.log(map);
+				if (map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-line')) {
+					console.log('next slide 1');
 					map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-line').remove();
 					map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-big-dot').remove();
 					map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-beach-name').remove();
+				} else {
+					console.log('next slide 2');
+					map[map.length - 1].firstChild.nextSibling.querySelector('.map-line').remove();
+					map[map.length - 1].firstChild.nextSibling.querySelector('.map-big-dot').remove();
+					map[map.length - 1].firstChild.nextSibling.querySelector('.map-beach-name').remove();
 				}
+
 			} else if (swiper.realIndex === 0 && prevIndex + 1 === slides.length) {
 				const map = document.querySelectorAll('.main-screen-slider__map');
-				map[5].firstChild.nextSibling.insertAdjacentHTML('afterbegin', mapLines[swiper.realIndex]);
-				map[5].firstChild.nextSibling.insertAdjacentHTML('afterbegin', mapBigDots[swiper.realIndex]);
-				map[5].firstChild.nextSibling.insertAdjacentHTML('afterbegin', mapNames[swiper.realIndex]);
+				map[map.length - 1].firstChild.nextSibling.insertAdjacentHTML('afterbegin', [mapLines[swiper.realIndex], mapBigDots[swiper.realIndex], mapNames[swiper.realIndex]].join(' '));
 
-				const bigDot = map[5].firstChild.nextSibling.querySelector('.map-big-dot');
-				const line = map[5].firstChild.nextSibling.querySelector('.map-line');
-				const beachName = map[5].firstChild.nextSibling.querySelector('.map-beach-name');
+				const bigDot = map[map.length - 1].firstChild.nextSibling.querySelector('.map-big-dot');
+				const line = map[map.length - 1].firstChild.nextSibling.querySelector('.map-line');
+				const beachName = map[map.length - 1].firstChild.nextSibling.querySelector('.map-beach-name');
 	
 				line.classList.add(`line-animation1`);
 				beachName.classList.add(`animate__animated`, `animate__fadeIn`, `animate__delay-0s`);
 				bigDot.classList.add(`animate__animated`, `animate__fadeIn`, `animate__delay-0s`);
-
-				map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-line').remove();
-				map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-big-dot').remove();
-				map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-beach-name').remove();
+				console.log(map);
+				if (map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-line')) {
+					console.log('next slide loop 1');
+					map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-line').remove();
+					map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-big-dot').remove();
+					map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-beach-name').remove();
+				} else {
+					console.log('next slide loop 1');
+					map[0].firstChild.nextSibling.querySelector('.map-line').remove();
+					map[0].firstChild.nextSibling.querySelector('.map-big-dot').remove();
+					map[0].firstChild.nextSibling.querySelector('.map-beach-name').remove();
+				}
 			}
 			prevIndex = swiper.realIndex;
 		},
 		slidePrevTransitionEnd: function (swiper) {
-			const lines = document.querySelectorAll('.map-line');
+			console.log('active:', swiper.realIndex, 'prev:', prevIndex)
 			if (swiper.realIndex < prevIndex) {
 				const map = document.querySelectorAll('.main-screen-slider__map');
-				map[swiper.realIndex + 1].firstChild.nextSibling.insertAdjacentHTML('afterbegin', mapLines[swiper.realIndex]);
-				map[swiper.realIndex + 1].firstChild.nextSibling.insertAdjacentHTML('afterbegin', mapBigDots[swiper.realIndex]);
-				map[swiper.realIndex + 1].firstChild.nextSibling.insertAdjacentHTML('afterbegin', mapNames[swiper.realIndex]);
+				map[swiper.realIndex + 1].firstChild.nextSibling.insertAdjacentHTML('afterbegin', [mapLines[swiper.realIndex], mapBigDots[swiper.realIndex], mapNames[swiper.realIndex]].join(' '));
 
 				const bigDot = map[swiper.realIndex + 1].firstChild.nextSibling.querySelector('.map-big-dot');
 				const line = map[swiper.realIndex + 1].firstChild.nextSibling.querySelector('.map-line');
@@ -131,36 +132,45 @@ let swiper = new Swiper(".main-screen-slider", {
 				line.classList.add(`line-animation${swiper.realIndex + 1}`);
 				beachName.classList.add(`animate__animated`, `animate__fadeIn`, `animate__delay-0s`);
 				bigDot.classList.add(`animate__animated`, `animate__fadeIn`, `animate__delay-0s`);
-
-				if (map[0].firstChild.nextSibling.querySelector('.map-line')) {
-					map[0].firstChild.nextSibling.querySelector('.map-line').remove();
-					map[0].firstChild.nextSibling.querySelector('.map-big-dot').remove();
-					map[0].firstChild.nextSibling.querySelector('.map-beach-name').remove();
-				} else {
+				console.log(map);
+				if (map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-line')) {
+					console.log('prev 1');
 					map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-line').remove();
 					map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-big-dot').remove();
 					map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-beach-name').remove();
+				} else {
+					console.log('prev 2');
+					map[0].firstChild.nextSibling.querySelector('.map-line').remove();
+					map[0].firstChild.nextSibling.querySelector('.map-big-dot').remove();
+					map[0].firstChild.nextSibling.querySelector('.map-beach-name').remove();
 				}
 
 			} else if (swiper.realIndex + 1 === slides.length && prevIndex === 0) {
 				const map = document.querySelectorAll('.main-screen-slider__map');
-				map[0].firstChild.nextSibling.insertAdjacentHTML('afterbegin', mapLines[swiper.realIndex]);
-				map[0].firstChild.nextSibling.insertAdjacentHTML('afterbegin', mapBigDots[swiper.realIndex]);
-				map[0].firstChild.nextSibling.insertAdjacentHTML('afterbegin', mapNames[swiper.realIndex]);
+				map[0].firstChild.nextSibling.insertAdjacentHTML('afterbegin', [mapLines[swiper.realIndex], mapBigDots[swiper.realIndex], mapNames[swiper.realIndex]].join(' '));
 
 				const bigDot = map[0].firstChild.nextSibling.querySelector('.map-big-dot');
 				const line = map[0].firstChild.nextSibling.querySelector('.map-line');
 				const beachName = map[0].firstChild.nextSibling.querySelector('.map-beach-name');
 	
-				line.classList.add(`line-animation1`);
+				line.classList.add(`line-animation4`);
 				beachName.classList.add(`animate__animated`, `animate__fadeIn`, `animate__delay-0s`);
 				bigDot.classList.add(`animate__animated`, `animate__fadeIn`, `animate__delay-0s`);
-				
-				map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-line').remove();
-				map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-big-dot').remove();
-				map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-beach-name').remove();
+				console.log(map);
+				if (map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-line')) {
+					console.log('prev loop 1');
+					map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-line').remove();
+					map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-big-dot').remove();
+					map[prevIndex + 1].firstChild.nextSibling.querySelector('.map-beach-name').remove();
+				} else {
+					console.log('prev loop 1');
+					map[map.length - 1].firstChild.nextSibling.querySelector('.map-line').remove();
+					map[map.length - 1].firstChild.nextSibling.querySelector('.map-big-dot').remove();
+					map[map.length - 1].firstChild.nextSibling.querySelector('.map-beach-name').remove();
+				}
 			}
 			prevIndex = swiper.realIndex;
+			
 		}
 		
 	},
