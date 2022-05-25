@@ -150,10 +150,9 @@ let swiper = new Swiper(".main-screen-slider", {
 });
 
 let swiper3 = new Swiper(".surf-dots-swiper", {
-	loop: true,
-	slidesPerView: 8,
-	freeMode: true,
-	watchSlidesProgress: true,
+	loop: false,
+	slidesPerView: 'auto',
+	allowTouchMove: false
 });
 
 let swiper2 = new Swiper(".surf-swiper", {
