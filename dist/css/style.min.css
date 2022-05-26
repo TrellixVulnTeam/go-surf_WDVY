@@ -132,8 +132,8 @@ body.lock {
 }
 
 .vertical-indent--xs {
-  padding-top: 0px;
-  padding-bottom: 0px;
+  padding-top: 156px;
+  padding-bottom: 34px;
 }
 .vertical-indent--s {
   padding-top: 0px;
@@ -277,7 +277,7 @@ body.lock {
 }
 
 .btn {
-  display: none;
+  display: flex;
   align-items: center;
   font-weight: 800;
   font-size: 40px;
@@ -334,10 +334,10 @@ body.lock {
   font-weight: 800;
   font-size: 200px;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.2);
+  color: #1C1E1E;
   position: relative;
   top: 10px;
-  left: -50px;
+  mix-blend-mode: normal;
 }
 
 .btns-nav {
@@ -542,13 +542,15 @@ body.lock {
   line-height: 34px;
   text-transform: uppercase;
 }
+.surf__section-name {
+  left: -50px;
+}
 .surf__location-bg {
   position: relative;
   display: block;
 }
 .surf__location-bg svg {
   position: absolute;
-  right: 0px;
   top: -130px;
 }
 .surf__location {
@@ -820,7 +822,34 @@ body.lock {
   height: 0;
 }
 .swiper-card__button {
+  display: none;
   position: absolute;
   bottom: 0;
   left: 45px;
+}
+
+.travel__section-name {
+  left: -180px;
+}
+.travel__location {
+  margin-top: -40px;
+  text-align: right;
+}
+.sleep__section-name {
+  left: -50px;
+}
+
+.shop__section-name {
+  left: -50px;
+}
+
+.footer__box {
+  text-align: center;
+}
+.footer__button {
+  justify-content: center;
+  margin-bottom: 27px;
+}
+.footer__copy {
+  opacity: 0.5;
 }

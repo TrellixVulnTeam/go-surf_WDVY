@@ -39,3 +39,9 @@ export function setTime() {
 	monthYear.innerHTML = `${today.getMonth() + 1} | ${today.getFullYear()}`
 	day.innerHTML = `${today.getDate()}`
 }
+
+export function setIndent() {
+	const img = document.querySelector('.surf__location-bg').firstChild.nextSibling;
+	const width = img.getAttribute("width");	
+	img.style.right = -(width / 2);
+}

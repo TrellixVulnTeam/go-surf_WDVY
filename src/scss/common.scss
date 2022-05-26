@@ -96,7 +96,7 @@
 }
 
 .btn {
-	display: none;
+	display: flex;
 	align-items: center;
 	font-weight: 800;
 	font-size: 40px;
@@ -133,26 +133,6 @@
 	}
 }
 
-.swiper-card {
-
-	&__button {
-	}
-}
-.btn {
-
-	&__left {
-	}
-
-	&__right {
-	}
-
-	&__right-text {
-	}
-
-	&__right-arrow {
-	}
-}
-
 .section-name {
 	position: relative;
 	display: inline-block;
@@ -178,10 +158,11 @@
 		font-weight: 800;
 		font-size: 200px;
 		text-transform: uppercase;
-		color: rgba($color-white, .2);
+		color: #1C1E1E;
 		position: relative;
 		top: 10px;
-		left: -50px;
+		// left: -50px;
+		mix-blend-mode: normal;
 	}
 }
 

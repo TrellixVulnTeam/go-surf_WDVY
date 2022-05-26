@@ -183,6 +183,7 @@ let swiper3 = new Swiper(".surf-dots-swiper", {
 
 let swiper2 = new Swiper(".surf-swiper", {
 	loop: true,
+	slideToClickedSlide: true,
 	slidesPerView: 'auto',
 	initialSlide: 1,
 	speed: 800,
