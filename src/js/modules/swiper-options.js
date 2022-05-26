@@ -92,6 +92,18 @@ let swiper = new Swiper(".main-screen-slider", {
 					deleteMapHtml(map, map.length - 1);
 				}
 
+			} else if (swiper.realIndex === 0 && prevIndex === 3 && map[0].firstChild.nextSibling.querySelector('.map-line')) {
+				map[1].firstChild.nextSibling.insertAdjacentHTML('afterbegin', [mapLines[swiper.realIndex], mapBigDots[swiper.realIndex], mapNames[swiper.realIndex]].join(' '));
+
+				const bigDot = map[1].firstChild.nextSibling.querySelector('.map-big-dot');
+				const line = map[1].firstChild.nextSibling.querySelector('.map-line');
+				const beachName = map[1].firstChild.nextSibling.querySelector('.map-beach-name');
+	
+				line.classList.add(`line-animation1`);
+				beachName.classList.add(`animate__animated`, `animate__fadeIn`, `animate__delay-0s`);
+				bigDot.classList.add(`animate__animated`, `animate__fadeIn`, `animate__delay-0s`);
+				deleteMapHtml(map, 0);
+				
 			} else if (swiper.realIndex === 0 && prevIndex + 1 === slides.length) {
 				map[map.length - 1].firstChild.nextSibling.insertAdjacentHTML('afterbegin', [mapLines[swiper.realIndex], mapBigDots[swiper.realIndex], mapNames[swiper.realIndex]].join(' '));
 
@@ -108,10 +120,12 @@ let swiper = new Swiper(".main-screen-slider", {
 					deleteMapHtml(map, 0);
 				}
 			}
+			
 			prevIndex = swiper.realIndex;
 		},
 		slidePrevTransitionEnd: function (swiper) {
 			const map = document.querySelectorAll('.main-screen-slider__map');
+			
 			if (swiper.realIndex < prevIndex) {
 				map[swiper.realIndex + 1].firstChild.nextSibling.insertAdjacentHTML('afterbegin', [mapLines[swiper.realIndex], mapBigDots[swiper.realIndex], mapNames[swiper.realIndex]].join(' '));
 
@@ -128,6 +142,18 @@ let swiper = new Swiper(".main-screen-slider", {
 					deleteMapHtml(map, 0);
 				}
 
+			} else if (swiper.realIndex === 3 && prevIndex === 0 && map[map.length - 1].firstChild.nextSibling.querySelector('.map-line')) {
+				map[map.length - 2].firstChild.nextSibling.insertAdjacentHTML('afterbegin', [mapLines[swiper.realIndex], mapBigDots[swiper.realIndex], mapNames[swiper.realIndex]].join(' '));
+
+				const bigDot = map[map.length - 2].firstChild.nextSibling.querySelector('.map-big-dot');
+				const line = map[map.length - 2].firstChild.nextSibling.querySelector('.map-line');
+				const beachName = map[map.length - 2].firstChild.nextSibling.querySelector('.map-beach-name');
+	 
+				line.classList.add(`line-animation${map.length - 2}`);
+				beachName.classList.add(`animate__animated`, `animate__fadeIn`, `animate__delay-0s`);
+				bigDot.classList.add(`animate__animated`, `animate__fadeIn`, `animate__delay-0s`);
+				deleteMapHtml(map, map.length - 1);
+				
 			} else if (swiper.realIndex + 1 === slides.length && prevIndex === 0) {
 				map[0].firstChild.nextSibling.insertAdjacentHTML('afterbegin', [mapLines[swiper.realIndex], mapBigDots[swiper.realIndex], mapNames[swiper.realIndex]].join(' '));
 
@@ -143,7 +169,7 @@ let swiper = new Swiper(".main-screen-slider", {
 				} else {
 					deleteMapHtml(map, map.length - 1);
 				}
-			}
+			} 
 			prevIndex = swiper.realIndex;
 		}
 	}

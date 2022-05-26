@@ -76,6 +76,10 @@ body {
 	&--right {
 		margin-right: 80px;
 	}
+	&--body {
+		max-width: 1440px;
+		padding: 0;
+	}
 }
 
 .vertical-indent {
@@ -88,8 +92,8 @@ body {
 		padding-bottom: 0px;
 	}
 	&--m {
-		padding-top: 60px;
-		padding-bottom: 60px;
+		padding-top: 160px;
+		padding-bottom: 128px;
 	}
 	&--l {
 		padding-top: 0px;
