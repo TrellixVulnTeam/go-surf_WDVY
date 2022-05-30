@@ -110,7 +110,6 @@
 }
 
 .main-screen-slider {
-	// position: relative;
 	width: 100%;
 	height: 100%;
 	&__wrapper {
@@ -148,27 +147,25 @@
 	&__button-next {
 	}
 
-	&__content {
+	&__location-block {
 		position: absolute;
-		text-align: right;
 		z-index: 10;
 		bottom: 115px;
 		right: 80px;
 	}
 
-	&__title {
-		&:first-child {
-			margin-bottom: 5px;
-		}
+	&__top-location {
+		align-items: end;
+		margin-bottom: 48px;
 	}
 
-	&__name {
-		font-style: normal;
-		font-weight: 800;
-		font-size: 80px;
-		line-height: 86px;
-		text-transform: uppercase;
-		margin-bottom: 48px;
+	&__bottom-location {
+		align-items: end;
+		margin-bottom: 28px;
+	}
+
+	&__arrow {
+		text-align: right;
 	}
 
 	&__condition {
@@ -178,6 +175,7 @@
 	&__pagination {
 		margin-bottom: 41px;
 	}
+
 }
 
 #start-screen-pagination {

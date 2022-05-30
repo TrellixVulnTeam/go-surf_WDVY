@@ -98,7 +98,7 @@ body.lock {
 }
 
 .container {
-  max-width: 1334px;
+  max-width: 1294px;
   width: 100%;
   margin: 0 auto;
   padding: 0 20px;
@@ -198,13 +198,26 @@ body.lock {
 .title {
   position: relative;
   display: inline-block;
-  margin-bottom: 8px;
   font-weight: 400;
   font-size: 22px;
   line-height: 32px;
   letter-spacing: 7.33333px;
   text-transform: uppercase;
   opacity: 0.5;
+}
+
+.title2 {
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 36px;
+  text-transform: uppercase;
+}
+
+.main-screen-name {
+  font-weight: 800;
+  font-size: 80px;
+  line-height: 86px;
+  text-transform: uppercase;
 }
 
 .name {
@@ -215,36 +228,6 @@ body.lock {
 }
 .name span {
   font-weight: 250;
-}
-
-.title-left {
-  padding-left: 104px;
-}
-.title-left::before {
-  content: "";
-  position: absolute;
-  height: 1px;
-  width: 80px;
-  background-color: #FFFFFF;
-  opacity: 0.5;
-  top: 50%;
-  left: 0px;
-  transform: translateY(-50%);
-}
-
-.title-right {
-  padding-left: 104px;
-}
-.title-right::before {
-  content: "";
-  position: absolute;
-  height: 1px;
-  width: 80px;
-  background-color: #FFFFFF;
-  opacity: 0.5;
-  top: 50%;
-  left: 0px;
-  transform: translateY(-50%);
 }
 
 .text {
@@ -362,8 +345,33 @@ body.lock {
   cursor: pointer;
 }
 
-.display-none {
-  display: none;
+.loca {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.loca__header {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+.loca__line {
+  height: 1px;
+  width: 80px;
+  background-color: #FFFFFF;
+  opacity: 0.5;
+  top: 50%;
+  left: 0px;
+  transform: translateY(-50%);
+}
+.loca__footer {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+.loca__image {
+  display: flex;
+  gap: 11px;
 }
 
 .header {
@@ -460,23 +468,22 @@ body.lock {
   right: 80px;
   top: 40px;
 }
-.main-screen-slider__content {
+.main-screen-slider__location-block {
   position: absolute;
-  text-align: right;
   z-index: 10;
   bottom: 115px;
   right: 80px;
 }
-.main-screen-slider__title:first-child {
-  margin-bottom: 5px;
-}
-.main-screen-slider__name {
-  font-style: normal;
-  font-weight: 800;
-  font-size: 80px;
-  line-height: 86px;
-  text-transform: uppercase;
+.main-screen-slider__top-location {
+  align-items: end;
   margin-bottom: 48px;
+}
+.main-screen-slider__bottom-location {
+  align-items: end;
+  margin-bottom: 28px;
+}
+.main-screen-slider__arrow {
+  text-align: right;
 }
 .main-screen-slider__condition {
   margin-bottom: 30px;
@@ -555,7 +562,7 @@ body.lock {
 }
 .surf__location {
   margin-top: -40px;
-  text-align: right;
+  align-items: end;
 }
 .surf__map {
   margin-top: -145px;
@@ -806,10 +813,6 @@ body.lock {
 }
 .swiper-card__title {
   position: absolute;
-  font-weight: 800;
-  font-size: 40px;
-  line-height: 36px;
-  text-transform: uppercase;
   top: 80px;
   left: 40px;
 }
@@ -828,13 +831,57 @@ body.lock {
   left: 45px;
 }
 
+.travel {
+  position: relative;
+}
 .travel__section-name {
   left: -180px;
 }
-.travel__location {
-  margin-top: -40px;
-  text-align: right;
+.travel__cocktail {
+  position: absolute;
+  right: -186px;
 }
+.travel-swiper__background {
+  max-width: 1115px;
+  max-height: 780px;
+}
+.travel-swiper__airplane {
+  position: absolute;
+  right: 0;
+}
+.travel-swiper__location {
+  align-items: end;
+}
+.travel-swiper__airline-block {
+  margin-bottom: 80px;
+}
+.travel-swiper__block-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 44px;
+}
+.info-item {
+  display: flex;
+  flex: 0 1 25%;
+  gap: 18px;
+}
+.info-item__title {
+  writing-mode: tb-rl;
+  transform: rotate(-180deg);
+  opacity: 0.5;
+  text-align: end;
+  text-transform: uppercase;
+}
+.info-item__subtitle-part2 {
+  text-align: right;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 36px;
+  letter-spacing: 5.25px;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
 .sleep__section-name {
   left: -50px;
 }

@@ -17,7 +17,7 @@
 
 	&__location {
 		margin-top: -40px;
-		text-align: right;
+		align-items: end;
 	}
 
 	&__location-title {
@@ -115,6 +115,7 @@
 	}
 	
 }
+
 .swiper-slide-thumb-active {
 	.weather-block {
 		display: block;
@@ -131,6 +132,7 @@
 		
 	}
 }
+
 .dot-block {
 	position: relative;
 	&__top {
@@ -321,10 +323,6 @@
 
 	&__title {
 		position: absolute;
-		font-weight: 800;
-		font-size: 40px;
-		line-height: 36px;
-		text-transform: uppercase;
 		top: 80px;
 		left: 40px;
 	}
@@ -347,27 +345,107 @@
 }
 
 .travel {
-
+	position: relative;
 	&__section-name {
 		left: -180px;
+	}
+
+	&__swiper {
+	}
+
+	&__cocktail {
+		position: absolute;
+		right: -186px;
+	}
+
+	&__button {
+	}
+}
+
+.section-name {
+
+	&__bg-title {
+	}
+
+	&__title {
+	}
+}
+
+.travel-swiper {
+
+	&__wrapper {
+	}
+
+	&__slide {
+	}
+	&__background {
+		max-width: 1115px;
+		max-height: 780px;
+		
+	}
+
+	&__airplane {
+		position: absolute;
+		right: 0;
 	}
 
 	&__content {
 	}
 
 	&__location {
-		margin-top: -40px;
-		text-align: right;
+		align-items: end;
 	}
 
-	&__location-title {
+	&__airline-block {
+		margin-bottom: 80px;
 	}
 
-	&__location-name {
+	&__block-info {
+		display: flex;
+		justify-content: space-between;
+		gap: 44px;
+	}
+
+	&__item {
+	}
+
+	&__btns-nav {
+	}
+
+	&__button-prev {
+	}
+
+	&__button-next {
 	}
 }
-.sleep {
 
+.info-item {
+	display: flex;
+	flex: 0 1 25%;
+	gap: 18px;
+	&__title {
+		writing-mode: tb-rl;
+		transform: rotate(-180deg);
+		opacity: 0.5;
+		text-align: end;
+		text-transform: uppercase;
+	}
+
+	&__subtitle {
+	}
+
+	&__subtitle-part2 {
+		text-align: right;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 36px;
+		letter-spacing: 5.25px;
+		text-transform: uppercase;
+		opacity: 0.75;
+	}
+}
+
+.sleep {
 	&__section-name {
 		left: -50px;
 	}
@@ -379,3 +457,8 @@
 		left: -50px;
 	}
 }
+
+
+
+
+
