@@ -1,15 +1,12 @@
 .surf {
+	position: relative;
 	&__section-name {
 		left: -50px;
 	}
 
 	&__location-bg {
-		position: relative;
-		display: block;
-		svg {
-			position: absolute;
-			top: -130px;
-		}
+		position: absolute;
+		top: 220px;
 	}
 
 	&__content {
@@ -355,10 +352,13 @@
 
 	&__cocktail {
 		position: absolute;
-		right: -186px;
+		right: -222px;
+		bottom: -129px;
 	}
 
 	&__button {
+		margin-top: 70px;
+		justify-content: center;
 	}
 }
 
@@ -372,24 +372,42 @@
 }
 
 .travel-swiper {
-
+	.swiper-slide {
+		// visibility: hidden;
+		opacity: 0 !important;
+	}
+	.swiper-slide-active {
+		// visibility: visible;
+		opacity: 1 !important;
+	}
 	&__wrapper {
 	}
 
 	&__slide {
 	}
+
 	&__background {
 		max-width: 1115px;
 		max-height: 780px;
-		
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		margin-top: -224px;
 	}
 
 	&__airplane {
 		position: absolute;
-		right: 0;
+		right: -60px;
+		bottom: 200px;
 	}
 
 	&__content {
+	}
+
+	&__right-block {
+		position: relative;
+		z-index: 10;
+		margin-top: 56px;
 	}
 
 	&__location {
@@ -397,7 +415,8 @@
 	}
 
 	&__airline-block {
-		margin-bottom: 80px;
+		margin-top: -115px;
+		margin-bottom: 100px;
 	}
 
 	&__block-info {
@@ -410,6 +429,9 @@
 	}
 
 	&__btns-nav {
+		margin-top: 20px;
+		margin-left: auto;
+		opacity: 0.25;
 	}
 
 	&__button-prev {

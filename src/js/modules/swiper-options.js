@@ -196,4 +196,14 @@ let swiper2 = new Swiper(".surf-swiper", {
 	  }
 });
 
+let swiper4 = new Swiper('.travel-swiper', {
+	effect: "fade",
+	loop: true,
+	speed: 800,
+	navigation: {
+		nextEl: ".travel-swiper__button-next",
+		prevEl: ".travel-swiper__button-prev",
+	},
+
+})
 

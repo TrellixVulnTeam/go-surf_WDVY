@@ -36,12 +36,17 @@ export function setTime() {
 	const today = new Date();
 	const monthYear = document.querySelector('.time__month-year');
 	const day = document.querySelector('.time__day');
-	monthYear.innerHTML = `${today.getMonth() + 1} | ${today.getFullYear()}`
-	day.innerHTML = `${today.getDate()}`
+	if (monthYear && day) {
+		monthYear.innerHTML = `${today.getMonth() + 1} | ${today.getFullYear()}`
+		day.innerHTML = `${today.getDate()}`
+	}
 }
 
 export function setIndent() {
-	const img = document.querySelector('.surf__location-bg').firstChild.nextSibling;
-	const width = img.getAttribute("width");	
-	img.style.right = -(width / 2);
+	const img = document.querySelector('.surf__location-bg');
+	const width = img.firstChild.nextSibling.getAttribute("width");	
+	console.log(img, width);
+	if (img && width) {
+		img.style.right = `${-(width / 2)}px`;
+	}
 }

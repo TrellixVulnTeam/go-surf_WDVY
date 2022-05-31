@@ -27,8 +27,13 @@ $color-white: #FFFFFF;
 @import 'libs/libs';
 
 // @import 'base/functions';
-
 // Оболочка
+
+html {
+	overflow-x: hidden;
+	margin-right: calc(-1 * (100vw - 100%));
+}
+
 body {
 	min-width: 100vw;
 	min-height: 100vh;
@@ -75,6 +80,9 @@ body {
 
 	&--right {
 		margin-right: 80px;
+	}
+	&--small {
+		padding: 0 59px;
 	}
 	&--body {
 		max-width: 1440px;
