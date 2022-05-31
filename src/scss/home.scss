@@ -341,67 +341,29 @@
 	}
 }
 
-.travel {
-	position: relative;
-	&__section-name {
-		left: -180px;
-	}
+.section {
 
 	&__swiper {
 	}
 
-	&__cocktail {
-		position: absolute;
-		right: -222px;
-		bottom: -129px;
-	}
-
 	&__button {
 		margin-top: 70px;
-		justify-content: center;
+		text-align: center;
 	}
 }
 
-.section-name {
-
-	&__bg-title {
-	}
-
-	&__title {
-	}
-}
-
-.travel-swiper {
+.section-swiper {
+	
 	.swiper-slide {
-		// visibility: hidden;
 		opacity: 0 !important;
 	}
 	.swiper-slide-active {
-		// visibility: visible;
 		opacity: 1 !important;
 	}
 	&__wrapper {
 	}
 
 	&__slide {
-	}
-
-	&__background {
-		max-width: 1115px;
-		max-height: 780px;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		margin-top: -224px;
-	}
-
-	&__airplane {
-		position: absolute;
-		right: -60px;
-		bottom: 200px;
-	}
-
-	&__content {
 	}
 
 	&__right-block {
@@ -412,6 +374,27 @@
 
 	&__location {
 		align-items: end;
+	}
+
+	&__btns-nav {
+		margin-top: 20px;
+		margin-left: auto;
+		opacity: 0.25;
+	}
+
+	&__button-prev {
+	}
+
+	&__button-next {
+	}
+
+	&__background {
+		max-width: 1115px;
+		max-height: 780px;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		margin-top: -224px;
 	}
 
 	&__airline-block {
@@ -427,49 +410,58 @@
 
 	&__item {
 	}
-
-	&__btns-nav {
-		margin-top: 20px;
-		margin-left: auto;
-		opacity: 0.25;
-	}
-
-	&__button-prev {
-	}
-
-	&__button-next {
-	}
 }
 
-.info-item {
-	display: flex;
-	flex: 0 1 25%;
-	gap: 18px;
-	&__title {
-		writing-mode: tb-rl;
-		transform: rotate(-180deg);
-		opacity: 0.5;
-		text-align: end;
-		text-transform: uppercase;
+.travel {
+	position: relative;
+	&__section-name {
+		left: -180px;
 	}
 
-	&__subtitle {
+	&__cocktail {
+		position: absolute;
+		right: -222px;
+		bottom: -129px;
+	}
+	
+	&__airplane {
+		position: absolute;
+		right: -47px;
+		bottom: 200px;
 	}
 
-	&__subtitle-part2 {
-		text-align: right;
-		font-weight: 400;
-		font-size: 14px;
-		line-height: 36px;
-		letter-spacing: 5.25px;
-		text-transform: uppercase;
-		opacity: 0.75;
+	.swiper {
+		overflow: visible !important;
 	}
 }
 
 .sleep {
+	position: relative;
 	&__section-name {
 		left: -50px;
+	}
+
+	&__frangipini {
+		position: absolute;
+		right: -222px;
+		bottom: -129px;
+	}
+
+	&__composition {
+		position: absolute;
+		right: -347px;
+		bottom: 261px;
+		img {
+			position: relative;
+			&:nth-child(2) {
+				top: 152px;
+				right: 232px;
+			}
+		}
+	}
+
+	.swiper {
+		overflow: visible !important;
 	}
 }
 

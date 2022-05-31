@@ -268,12 +268,17 @@ body.lock {
 }
 
 .btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   font-weight: 800;
   font-size: 40px;
   line-height: 36px;
   text-transform: uppercase;
+  transition: all 0.6s ease 0s;
+  -webkit-transition: all 0.6s ease 0s;
+  -moz-transition: all 0.6s ease 0s;
+  -ms-transition: all 0.6s ease 0s;
+  -o-transition: all 0.6s ease 0s;
 }
 .btn__left {
   margin-right: 19px;
@@ -298,6 +303,9 @@ body.lock {
   display: flex;
   align-items: center;
   margin-left: 16px;
+}
+.btn:hover {
+  transform: translateY(-7px);
 }
 
 .section-name {
@@ -380,6 +388,43 @@ body.lock {
 .loca__image {
   display: flex;
   gap: 11px;
+}
+.loca__img {
+  object-fit: contain;
+  width: 52px;
+  height: 46px;
+}
+
+.info-item {
+  display: flex;
+  flex: 0 1 25%;
+  gap: 18px;
+}
+.info-item__title {
+  writing-mode: tb-rl;
+  transform: rotate(-180deg);
+  opacity: 0.5;
+  text-align: end;
+  text-transform: uppercase;
+}
+.info-item__subtitle-part2 {
+  text-align: right;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 36px;
+  letter-spacing: 5.25px;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+.info-item__switch {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin-top: 11px;
+  gap: 16px;
+}
+.info-item__switch svg {
+  cursor: pointer;
 }
 
 .header {
@@ -838,6 +883,47 @@ body.lock {
   left: 45px;
 }
 
+.section__button {
+  margin-top: 70px;
+  text-align: center;
+}
+
+.section-swiper .swiper-slide {
+  opacity: 0 !important;
+}
+.section-swiper .swiper-slide-active {
+  opacity: 1 !important;
+}
+.section-swiper__right-block {
+  position: relative;
+  z-index: 10;
+  margin-top: 56px;
+}
+.section-swiper__location {
+  align-items: end;
+}
+.section-swiper__btns-nav {
+  margin-top: 20px;
+  margin-left: auto;
+  opacity: 0.25;
+}
+.section-swiper__background {
+  max-width: 1115px;
+  max-height: 780px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin-top: -224px;
+}
+.section-swiper__airline-block {
+  margin-top: -115px;
+  margin-bottom: 100px;
+}
+.section-swiper__block-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 44px;
+}
 .travel {
   position: relative;
 }
@@ -849,76 +935,40 @@ body.lock {
   right: -222px;
   bottom: -129px;
 }
-.travel__button {
-  margin-top: 70px;
-  justify-content: center;
-}
-
-.travel-swiper .swiper-slide {
-  opacity: 0 !important;
-}
-.travel-swiper .swiper-slide-active {
-  opacity: 1 !important;
-}
-.travel-swiper__background {
-  max-width: 1115px;
-  max-height: 780px;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  margin-top: -224px;
-}
-.travel-swiper__airplane {
+.travel__airplane {
   position: absolute;
-  right: -60px;
+  right: -47px;
   bottom: 200px;
 }
-.travel-swiper__right-block {
-  position: relative;
-  z-index: 10;
-  margin-top: 56px;
-}
-.travel-swiper__location {
-  align-items: end;
-}
-.travel-swiper__airline-block {
-  margin-top: -115px;
-  margin-bottom: 100px;
-}
-.travel-swiper__block-info {
-  display: flex;
-  justify-content: space-between;
-  gap: 44px;
-}
-.travel-swiper__btns-nav {
-  margin-top: 20px;
-  margin-left: auto;
-  opacity: 0.25;
-}
-.info-item {
-  display: flex;
-  flex: 0 1 25%;
-  gap: 18px;
-}
-.info-item__title {
-  writing-mode: tb-rl;
-  transform: rotate(-180deg);
-  opacity: 0.5;
-  text-align: end;
-  text-transform: uppercase;
-}
-.info-item__subtitle-part2 {
-  text-align: right;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 36px;
-  letter-spacing: 5.25px;
-  text-transform: uppercase;
-  opacity: 0.75;
+.travel .swiper {
+  overflow: visible !important;
 }
 
+.sleep {
+  position: relative;
+}
 .sleep__section-name {
   left: -50px;
+}
+.sleep__frangipini {
+  position: absolute;
+  right: -222px;
+  bottom: -129px;
+}
+.sleep__composition {
+  position: absolute;
+  right: -347px;
+  bottom: 261px;
+}
+.sleep__composition img {
+  position: relative;
+}
+.sleep__composition img:nth-child(2) {
+  top: 152px;
+  right: 232px;
+}
+.sleep .swiper {
+  overflow: visible !important;
 }
 
 .shop__section-name {
