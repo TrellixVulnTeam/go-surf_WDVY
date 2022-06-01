@@ -152,6 +152,7 @@
 		max-height: 358px;
 		overflow: hidden;
 		opacity: .5;
+		white-space: nowrap;
 	}
 
 	&__circle {
@@ -331,6 +332,7 @@
 		transform: rotate(-90deg);
 		width: 0;
 		height: 0;
+		white-space: nowrap;
 	}
 
 	&__button {
@@ -443,8 +445,8 @@
 
 	&__frangipini {
 		position: absolute;
-		right: -222px;
-		bottom: -129px;
+		right: 159px;
+    	bottom: 74px;
 	}
 
 	&__composition {
@@ -470,7 +472,111 @@
 	&__section-name {
 		left: -50px;
 	}
+	&__swiper {
+		
+	}
 }
+
+.shop-swiper {
+
+	&__wrapper {
+	}
+
+	&__slide {
+	}
+
+	&__background {
+	}
+
+	&__row {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__info-block {
+	}
+
+	&__header {
+		margin-bottom: 47px;
+		max-width: 481px;
+	}
+
+	&__grade {
+		margin-bottom: 9px;
+	}
+
+	&__price {
+		margin-bottom: 67px;
+		font-weight: 800;
+		font-size: 32px;
+		line-height: 40px;
+		text-transform: uppercase;
+		sup {
+			font-size: 18px;
+		}
+	}
+
+	&__button {
+	}
+
+	&__surfboard {
+	}
+
+	&__extras {
+	}
+
+	&__btns-nav {
+		opacity: .25;
+	}
+
+	&__button-prev {
+	}
+
+	&__button-next {
+	}
+}
+
+.extras {
+	
+	&__title {
+		font-weight: 800;
+		font-size: 28px;
+		line-height: 40px;
+		text-transform: uppercase;
+		margin-bottom: 25px;
+	}
+
+	&__row {
+		display: flex;
+		gap: 57px;
+	}
+
+	&__column {
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+	}
+
+	&__product-img {
+		flex: 1 0 auto;
+		margin-bottom: 35px;
+	}
+
+	&__product-name {
+		opacity: .5;
+		margin-bottom: 10px;
+	}
+
+	&__product-price {
+		font-weight: 800;
+		font-size: 18px;
+		line-height: 40px;
+		text-transform: uppercase;
+	}
+}
+
+
+
 
 
 

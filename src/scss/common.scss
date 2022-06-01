@@ -75,7 +75,7 @@
 	font-size: 18px;
 	line-height: 22px;
 	letter-spacing: 8px;
-	white-space: nowrap;
+	text-transform: uppercase;
 }
 
 .btn {
@@ -212,8 +212,6 @@
 	}
 
 	&__image {
-		display: flex;
-		gap: 11px;
 	}
 
 	&__img {
@@ -222,6 +220,11 @@
 		height: 46px;
 	}
 
+}
+
+.stars {
+	display: flex;
+	gap: 11px;
 }
 
 .info-item {
@@ -234,6 +237,7 @@
 		opacity: 0.5;
 		text-align: end;
 		text-transform: uppercase;
+		white-space: nowrap;
 	}
 
 	&__subtitle {
@@ -251,12 +255,20 @@
 
 	&__switch {
 		display: flex;
-		align-items: center;
 		justify-content: end;
+		gap: 10px;
 		margin-top: 11px;
-		gap: 16px;
-		svg {
-			cursor: pointer;
-		}
 	}
+
+	&__minus {}
+	&__plus {}
+}
+
+.box-size {
+	width: 20px;
+	height: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
 }

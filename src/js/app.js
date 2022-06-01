@@ -7,3 +7,4 @@ flsFunctions.ibg();
 flsFunctions.toggleClassActive();
 flsFunctions.setTime();
 flsFunctions.setIndent();
+flsFunctions.increaseCount();

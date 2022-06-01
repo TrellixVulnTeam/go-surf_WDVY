@@ -45,7 +45,6 @@ export function setTime() {
 export function setIndent() {
 	const img = document.querySelector('.surf__location-bg');
 	const width = img.firstChild.nextSibling.getAttribute("width");	
-	console.log(img, width);
 	if (img && width) {
 		img.style.right = `${-(width / 2)}px`;
 	}
