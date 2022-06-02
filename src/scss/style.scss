@@ -8,7 +8,7 @@
 $fontfamily: 'Fira Sans', sans-serif;
 
 // Переменные
-$containerWidth: 1254;
+$containerWidth: 1294;
 $containerPadding: 40;
 $containerSidePadding: math.div($containerPadding, 2);
 $breakpoint1400: 1339.98 + px;
@@ -88,9 +88,8 @@ body {
 		max-width: 1440px;
 		padding: 0;
 	}
-	&--left-right {
-		margin-right: 80px;
-		padding: 0 59px;
+	&--left {
+		padding-left: 59px;
 	}
 }
 

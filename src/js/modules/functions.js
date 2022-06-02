@@ -22,16 +22,25 @@ export function ibg() {
 }
 
 export function toggleClassActive() {
-	var el = document.querySelector('.icon-menu');
+	const el = document.querySelectorAll('.surfboard-info-block');
 	if(el) {
-		document.querySelector('.icon-menu').addEventListener('click', () => {
-			document.querySelector('.icon-menu').classList.toggle('_active')
-			document.querySelector('.menu__body').classList.toggle('_active')
-			document.querySelector('body').classList.toggle('lock')
-		})
+		for (let i = 0; i < el.length; i++) {
+			el[i].addEventListener('click', () => {
+				el[i].classList.toggle('active');
+			})
+		}
 	}
 }
 
+// if(el) {
+	// 	for (let i = 0; i < el.length; i++) {
+	// 		if (el[i].parentNode.parentNode.parentNode.parentNode.classList.contains('swiper-slide-active')) {
+	// 			el[i].addEventListener('click', () => {
+	// 				el[i].classList.toggle('active');
+	// 			})
+	// 		}
+	// 	}
+	// }
 export function setTime() {
 	const today = new Date();
 	const monthYear = document.querySelector('.time__month-year');

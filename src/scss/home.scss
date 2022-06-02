@@ -290,7 +290,7 @@
 			opacity: 0.3;
 		}
 		.btn {
-			display: flex;
+			display: inline-flex;
 		}
 	}
 }
@@ -478,6 +478,15 @@
 }
 
 .shop-swiper {
+	position: relative;
+	margin-top: -31px;
+
+	.swiper-slide {
+		opacity: 0 !important;
+	}
+	.swiper-slide-active {
+		opacity: 1 !important;
+	}
 
 	&__wrapper {
 	}
@@ -486,14 +495,19 @@
 	}
 
 	&__background {
+		position: absolute;
+		right: 0;
+		top: 52px;
 	}
 
 	&__row {
+		position: relative;
 		display: flex;
 		justify-content: space-between;
 	}
 
 	&__info-block {
+		margin: auto 0;
 	}
 
 	&__header {
@@ -520,9 +534,33 @@
 	}
 
 	&__surfboard {
+		position: relative;
+		padding: 0 10px;
+		margin: 0 -10px;
+		.active {
+			.surfboard-info-block__icon::before {
+				opacity: 0;
+				visibility: hidden;
+				transform: rotate(-90deg);
+			}
+			.surfboard-info-block__line,
+			.surfboard-info-block__text {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
+
+	&__surfboard-info {
 	}
 
 	&__extras {
+		margin-top: auto;
+	}
+
+	&__btns-container {
+		position: absolute;
+		right: 0;
 	}
 
 	&__btns-nav {
@@ -534,6 +572,84 @@
 
 	&__button-next {
 	}
+}
+
+.surfboard-info-block {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	&:nth-of-type(1) {
+		top: 192px;
+		right: -305px;
+	}
+	&:nth-of-type(2) {
+		top: 287px;
+    	right: -143px;
+	}
+	&:nth-of-type(3) {
+		left: -304px;
+    	bottom: 50px;
+		.surfboard-info-block__text {
+			margin: 0 16px 0 0;
+		}
+	}
+	span {
+		display: block;
+		position: relative;
+		width: 20px;
+		height: 20px;
+		background-color: $color-white;
+		border-radius: 100%;
+		&::after {
+			content: '';
+			position: absolute;
+			width: 12px;
+			height: 2.35px;
+			background-color: #4AF6CD;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+		&::before {
+			content: '';
+			position: absolute;
+			width: 12px;
+			height: 2.35px;
+			background-color: #4AF6CD;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%) rotate(90deg);
+			opacity: 1;
+			visibility: visible;
+			@include anim(.3s, 0s);
+		}
+		
+	}
+
+	&__line {
+		opacity: 0;
+		visibility: hidden;
+		width: 80px;
+		height: 1px;
+		background: $color-white;
+		opacity: 0.5;
+		margin: 0 8px;
+		@include anim(.3s, 0s);
+	}
+
+	&__text {
+		opacity: 0;
+		visibility: hidden;
+		max-width: 255px;
+		font-weight: 800;
+		font-size: 24px;
+		line-height: 24px;
+		margin-left: 16px;
+		text-transform: uppercase;
+		@include anim(.6s, 0s);
+	}
+
+	
 }
 
 .extras {

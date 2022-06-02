@@ -207,3 +207,13 @@ let swiper4 = new Swiper('.section-swiper', {
 
 })
 
+let swiper5 = new Swiper('.shop-swiper', {
+	effect: "fade",
+	loop: true,
+	speed: 800,
+	navigation: {
+		nextEl: ".shop-swiper__button-next",
+		prevEl: ".shop-swiper__button-prev",
+	}
+})
+
