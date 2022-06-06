@@ -215,5 +215,8 @@ let swiper5 = new Swiper('.shop-swiper', {
 		nextEl: ".shop-swiper__button-next",
 		prevEl: ".shop-swiper__button-prev",
 	}
+	
+    
 })
+
 

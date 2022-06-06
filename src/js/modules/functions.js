@@ -22,25 +22,24 @@ export function ibg() {
 }
 
 export function toggleClassActive() {
-	const el = document.querySelectorAll('.surfboard-info-block');
-	if(el) {
-		for (let i = 0; i < el.length; i++) {
-			el[i].addEventListener('click', () => {
-				el[i].classList.toggle('active');
+	const infoBlockElements = document.querySelectorAll('.surfboard-info-block');
+	const slides = document.querySelectorAll('.shop-swiper__slide')
+	if (infoBlockElements) {
+		for (let i = 0; i < infoBlockElements.length; i++) {
+			infoBlockElements[i].addEventListener('click', () => {
+				const arr = Array.prototype.slice.call(infoBlockElements[i].closest('.shop-swiper__slide').querySelectorAll('.surfboard-info-block'))
+				const iconIndex = arr.indexOf(infoBlockElements[i]);
+				const slideIndex = infoBlockElements[i].closest('.shop-swiper__slide').getAttribute('data-swiper-slide-index');
+				slides.forEach((slide) => {
+					if (slide.getAttribute('data-swiper-slide-index') === slideIndex) {
+						slide.querySelectorAll('.surfboard-info-block')[iconIndex].classList.toggle('active');
+					};
+				})
 			})
 		}
 	}
 }
 
-// if(el) {
-	// 	for (let i = 0; i < el.length; i++) {
-	// 		if (el[i].parentNode.parentNode.parentNode.parentNode.classList.contains('swiper-slide-active')) {
-	// 			el[i].addEventListener('click', () => {
-	// 				el[i].classList.toggle('active');
-	// 			})
-	// 		}
-	// 	}
-	// }
 export function setTime() {
 	const today = new Date();
 	const monthYear = document.querySelector('.time__month-year');
@@ -58,3 +57,4 @@ export function setIndent() {
 		img.style.right = `${-(width / 2)}px`;
 	}
 }
+
