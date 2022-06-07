@@ -1,0 +1,32 @@
+body,
+.txt,
+.hide {
+  font: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+.txt {
+  border: none;
+  min-width: 10px;
+}
+
+.txt:focus-visible {
+  outline: none;
+}
+
+.hide {
+  position: absolute;
+  height: 0;
+  overflow: hidden;
+  white-space: pre;
+}
+
+.price, .txt {
+	background-color: transparent;
+	color: $color-white;
+}
+
+.price {
+	display: none;
+}

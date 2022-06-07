@@ -7,3 +7,6 @@ flsFunctions.ibg();
 flsFunctions.toggleClassActive();
 flsFunctions.setTime();
 flsFunctions.setIndent();
+flsFunctions.resizeInput();
+flsFunctions.counter();
+flsFunctions.defaultPrice();

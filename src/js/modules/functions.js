@@ -58,3 +58,84 @@ export function setIndent() {
 	}
 }
 
+export function resizeInput() {
+	const hideElements = document.querySelectorAll('.hide');
+	const txtElements = document.querySelectorAll('.txt');
+	resize();
+	txtElements.forEach(txt => {
+		txt.addEventListener("input", resize());
+	})
+
+	function resize() {
+		for (let i = 0; i <= hideElements.length - 1; i++) {
+			for (let j = 0; j <= txtElements.length - 1; j++) {
+				hideElements[i].textContent = txtElements[j].value;
+				txtElements[j].style.width = hideElements[i].offsetWidth + 15 + "px";
+			}		
+		}
+	}
+}
+// добавить авторесайз после изменения value
+
+export function counter() {
+	const slides = document.querySelectorAll('.sleep .section-swiper__slide');
+
+	document.body.addEventListener('click', (event) => {
+		if (event.target.closest('.info-item__plus')) {
+			const arr = Array.prototype.slice.call(event.target.closest('.sleep .section-swiper__slide').querySelectorAll('.info-item__plus'));
+			const iconIndex = arr.indexOf(event.target.closest('.info-item__plus'));
+			const slideIndex = event.target.closest('.sleep .section-swiper__slide').getAttribute('data-swiper-slide-index');
+			slides.forEach((slide) => {
+				if (slide.getAttribute('data-swiper-slide-index') === slideIndex) {
+					increaseCounter(slide, iconIndex);
+					updatePrice(slide);
+					resizeInput();
+				};
+			})
+		} else if (event.target.closest('.info-item__minus')) {
+			const arr = Array.prototype.slice.call(event.target.closest('.sleep .section-swiper__slide').querySelectorAll('.info-item__minus'));
+			const iconIndex = arr.indexOf(event.target.closest('.info-item__minus'));
+			const slideIndex = event.target.closest('.sleep .section-swiper__slide').getAttribute('data-swiper-slide-index');
+			slides.forEach((slide) => {
+				if (slide.getAttribute('data-swiper-slide-index') === slideIndex) {
+					decreaseCounter(slide, iconIndex);
+					updatePrice(slide);
+					resizeInput();
+				};
+			})
+		}
+		
+	})
+	
+}
+
+function updatePrice(slide) {
+	const usd = slide.querySelector('.sleep .info-item__price');
+	const dataGuest = slide.querySelector('.price').dataset.guest;
+	const dataNight = slide.querySelector('.price').dataset.night;
+	const nightValue = slide.querySelector('.night').value;
+	const guestValue = slide.querySelector('.guest').value;
+
+	const summ = nightValue * dataNight + (guestValue - 1) * dataGuest;
+	// input.value = `$${summ} USD`;
+	usd.innerHTML = `$${summ} USD`;
+}
+
+export function defaultPrice() {
+	const slides = document.querySelectorAll('.sleep .section-swiper__slide');
+	slides.forEach((slide) => {
+		updatePrice(slide);
+	})
+}
+
+function increaseCounter(slide, index) {
+	const value = slide.querySelectorAll('.txt')[index].value;
+	const max = slide.querySelectorAll('.txt')[index].max;
+	value < max ? slide.querySelectorAll('.txt')[index].value++ : false;
+}
+
+function decreaseCounter(slide, index) {
+	const value = slide.querySelectorAll('.txt')[index].value;
+	const min = slide.querySelectorAll('.txt')[index].min;
+	min < value ? slide.querySelectorAll('.txt')[index].value-- : false;
+}

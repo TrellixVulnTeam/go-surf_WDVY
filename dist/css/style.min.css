@@ -162,6 +162,39 @@ body.lock {
   padding-top: 0px;
   padding-bottom: 0px;
 }
+body,
+.txt,
+.hide {
+  font: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+.txt {
+  border: none;
+  min-width: 10px;
+}
+
+.txt:focus-visible {
+  outline: none;
+}
+
+.hide {
+  position: absolute;
+  height: 0;
+  overflow: hidden;
+  white-space: pre;
+}
+
+.price, .txt {
+  background-color: transparent;
+  color: #FFFFFF;
+}
+
+.price {
+  display: none;
+}
+
 .ibg {
   background-position: center;
   background-size: cover;
@@ -411,6 +444,9 @@ body.lock {
   text-align: end;
   text-transform: uppercase;
   white-space: nowrap;
+}
+.info-item__subtitle {
+  letter-spacing: 6px;
 }
 .info-item__subtitle-part2 {
   text-align: right;
